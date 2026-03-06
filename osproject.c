@@ -1,19 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
     int n,i,time=0,completed=0,highest;
-    
-    int at[10],bt[10],pr[10];
-    int rt[10],ct[10],tat[10],wt[10];
-    char pid[10][5];
 
-    printf("Enter number of processes:\n");
+    int at[20],bt[20],pr[20];
+    int rt[20],ct[20],tat[20],wt[20];
+    char pid[20][5];
+
+    printf("Enter number of processes: ");
     scanf("%d",&n);
+
+    printf("\nEnter PID ArrivalTime BurstTime Priority\n");
 
     for(i=0;i<n;i++)
     {
+        printf("Process %d: ",i+1);
         scanf("%s %d %d %d",pid[i],&at[i],&bt[i],&pr[i]);
         rt[i]=bt[i];
     }
@@ -27,7 +29,7 @@ int main()
             if(at[i]<=time && rt[i]>0)
             {
                 if(highest==-1 || pr[i]>pr[highest])
-                highest=i;
+                    highest=i;
             }
         }
 
